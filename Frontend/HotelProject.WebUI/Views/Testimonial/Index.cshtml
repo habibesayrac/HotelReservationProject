@@ -21,10 +21,10 @@
         <td>@item.Name</td>
         <td>@item.Title</td>
         <td>@item.Image</td>
-        <td><a href="#" class="btn btn-outline-warning">Düzenle</a></td>
-        <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
+        <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn btn-outline-warning">Düzenle</a></td>
+        <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-outline-danger">Sil</a></td>
         </tr>
     }
 
 </table>
-<button class="btn btn-outline-primary">Yeni Referans Ekle</button>
+<a href="/Testimonial/AddTestimonial/" class="btn btn-outline-primary">Yeni Referans Ekle</a>
