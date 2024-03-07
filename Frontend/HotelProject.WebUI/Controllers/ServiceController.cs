@@ -37,6 +37,10 @@ namespace HotelProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> AddService(CreateServiceDto serviceDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(serviceDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
