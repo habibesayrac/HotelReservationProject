@@ -29,16 +29,16 @@ namespace HotelProject.WebUI.Controllers
         }
         public async Task<IActionResult> ApprovedBooking(ApprovedBookingDto approvedBookingDto)
         {
-            approvedBookingDto.Status = "Onaylandı";
-            var client= _httpClientFactory.CreateClient();
+            var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(approvedBookingDto);
-            StringContent stringContent = new StringContent(jsonData,Encoding.UTF8,"application/json");
-            var responseMessage = await client.PutAsync("http://localhost:30055/api/BookingApi/",stringContent);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("http://localhost:30055/api/BookingApi/bbb", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
             }
             return View();
         }
+
     }
 }
