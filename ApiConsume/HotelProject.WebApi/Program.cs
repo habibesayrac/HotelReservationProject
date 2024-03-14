@@ -32,6 +32,9 @@ builder.Services.AddScoped<IBookingService,BookingManager>();
 builder.Services.AddScoped<IContactDal,EfContactDal>();
 builder.Services.AddScoped<IBookingService, BookingManager>();
 
+builder.Services.AddScoped<IGuestDal, EfGuestDal>();
+builder.Services.AddScoped<IGuestService, GuestManager>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
 //builder.Services.AddScoped
