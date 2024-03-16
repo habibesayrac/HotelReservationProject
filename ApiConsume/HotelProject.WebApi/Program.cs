@@ -30,10 +30,13 @@ builder.Services.AddScoped<IBookingDal,EfBookingDal>();
 builder.Services.AddScoped<IBookingService,BookingManager>();
 
 builder.Services.AddScoped<IContactDal,EfContactDal>();
-builder.Services.AddScoped<IBookingService, BookingManager>();
+builder.Services.AddScoped<IContactService, ContactManager>();
 
 builder.Services.AddScoped<IGuestDal, EfGuestDal>();
 builder.Services.AddScoped<IGuestService, GuestManager>();
+
+builder.Services.AddScoped<ISendMessageDal, EfSendMessageDal>();
+builder.Services.AddScoped<ISendMessageService, SendMessageManager>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 
