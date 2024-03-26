@@ -7,11 +7,11 @@ namespace HotelProject.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkLocationController : ControllerBase
+    public class WorkLocation1Controller : ControllerBase
     {
         private readonly IWorkLocationService _workLocationService;
 
-        public WorkLocationController(IWorkLocationService workLocationService)
+        public WorkLocation1Controller(IWorkLocationService workLocationService)
         {
             _workLocationService = workLocationService;
         }
