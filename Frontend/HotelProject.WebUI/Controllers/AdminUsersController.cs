@@ -38,6 +38,7 @@ namespace HotelProject.WebUI.Controllers
         //    var responseMessage = await client.GetAsync("http://localhost:30055/api/AppUser");
         //    if (responseMessage.IsSuccessStatusCode)
         //    {
+
         //        var jsonData = await responseMessage.Content.ReadAsStringAsync();
         //        var values = JsonConvert.DeserializeObject<List<ResultAppUserListDto>>(jsonData);
         //        return View(values);
