@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class AdminUserListWithWorkLocationController : Controller
+	[AllowAnonymous]
+
+	public class AdminUserListWithWorkLocationController : Controller
     {
         public IActionResult Index()
         {

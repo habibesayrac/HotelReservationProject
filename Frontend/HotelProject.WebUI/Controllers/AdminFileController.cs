@@ -1,9 +1,11 @@
 ﻿
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 
 namespace HotelProject.WebUI.Controllers
 {
+    [AllowAnonymous]
     public class AdminFileController : Controller
     {
 
@@ -24,7 +26,7 @@ namespace HotelProject.WebUI.Controllers
                 MultipartFormDataContent multipartFormDataContent = new MultipartFormDataContent();
                 multipartFormDataContent.Add(byteArrayContent, "file", file.FileName);
                 var httpclient = new HttpClient();
-                await httpclient.PostAsync("http://localhost:30055/api/FileProcess", multipartFormDataContent);
+                await httpclient.PostAsync("http://localhost:44362/api/FileProcess", multipartFormDataContent);
 
 
                 return View();

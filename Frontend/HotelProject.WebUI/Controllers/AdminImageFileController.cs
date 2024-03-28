@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class AdminImageFileController : Controller
+	[AllowAnonymous]
+
+	public class AdminImageFileController : Controller
     {
         [HttpGet]
         public IActionResult Index()
@@ -22,7 +25,7 @@ namespace HotelProject.WebUI.Controllers
             MultipartFormDataContent multipartFormDataContent = new MultipartFormDataContent();
             multipartFormDataContent.Add(byteArrayContent,"file",file.FileName);
             var httpclient = new HttpClient();
-            await httpclient.PostAsync("http://localhost:30055/api/FileImage",multipartFormDataContent);
+            await httpclient.PostAsync("http://localhost:44362/api/FileImage", multipartFormDataContent);
            
 
             return View();

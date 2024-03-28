@@ -12,41 +12,41 @@ namespace HotelProject.WebUI.Controllers
     [AllowAnonymous]
     public class AdminUsersController : Controller
     {
-        //private readonly IHttpClientFactory _httpClientFactory;
+		//private readonly IHttpClientFactory _httpClientFactory;
 
-        //public AdminUsersController(IHttpClientFactory httpClientFactory)
-        //{
-        //    _httpClientFactory = httpClientFactory;
-        //}
+		//public AdminUsersController(IHttpClientFactory httpClientFactory)
+		//{
+		//    _httpClientFactory = httpClientFactory;
+		//}
 
-        //public async Task<IActionResult> Index()
-        //{
-        //    var client = _httpClientFactory.CreateClient();
-        //    var responseMessage = await client.GetAsync("http://localhost:30055/api/AppUser");
-        //    if (responseMessage.IsSuccessStatusCode)
-        //    {
-        //        var jsonData = await responseMessage.Content.ReadAsStringAsync();
-        //        var values = JsonConvert.DeserializeObject<List<ResultAppUserDto>>(jsonData);
-        //        return View(values);
-        //    }
+		//public async Task<IActionResult> Index()
+		//{
+		//    var client = _httpClientFactory.CreateClient();
+		//    var responseMessage = await client.GetAsync("http://localhost:44362/api/AppUser");
+		//    if (responseMessage.IsSuccessStatusCode)
+		//    {
+		//        var jsonData = await responseMessage.Content.ReadAsStringAsync();
+		//        var values = JsonConvert.DeserializeObject<List<ResultAppUserDto>>(jsonData);
+		//        return View(values);
+		//    }
 
-        //    return View();
-        //}
-        //public async Task<IActionResult> UserList()
-        //{
-        //    var client = _httpClientFactory.CreateClient();
-        //    var responseMessage = await client.GetAsync("http://localhost:30055/api/AppUser");
-        //    if (responseMessage.IsSuccessStatusCode)
-        //    {
+		//    return View();
+		//}
+		//public async Task<IActionResult> UserList()
+		//{
+		//    var client = _httpClientFactory.CreateClient();
+		//    var responseMessage = await client.GetAsync("http://localhost:44362/api/AppUser");
+		//    if (responseMessage.IsSuccessStatusCode)
+		//    {
 
-        //        var jsonData = await responseMessage.Content.ReadAsStringAsync();
-        //        var values = JsonConvert.DeserializeObject<List<ResultAppUserListDto>>(jsonData);
-        //        return View(values);
-        //    }
+		//        var jsonData = await responseMessage.Content.ReadAsStringAsync();
+		//        var values = JsonConvert.DeserializeObject<List<ResultAppUserListDto>>(jsonData);
+		//        return View(values);
+		//    }
 
-        //    return View();
-        //}
-        private readonly UserManager<AppUser> _userManager;
+		//    return View();
+		//}
+		private readonly UserManager<AppUser> _userManager;
 
         public AdminUsersController(UserManager<AppUser> userManager)
         {

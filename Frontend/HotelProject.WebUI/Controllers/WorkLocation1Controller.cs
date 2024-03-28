@@ -1,9 +1,12 @@
 ﻿using HotelProject.EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class WorkLocation1Controller : Controller
+	[AllowAnonymous]
+
+	public class WorkLocation1Controller : Controller
     {
     //    private readonly IWorkLocationService _workLocationService;
     //    public WorkLocationController(IWorkLocationService workLocationService)

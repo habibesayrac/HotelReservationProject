@@ -1,12 +1,15 @@
 ﻿using HotelProject.WebUI.Dtos.RoomDto;
 using HotelProject.WebUI.Models.Staff;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
-    public class AdminRoomController : Controller
+	[AllowAnonymous]
+
+	public class AdminRoomController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -18,7 +21,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:30055/api/Room");
+            var responseMessage = await client.GetAsync("http://localhost:44362/api/Room");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -39,7 +42,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createRoomDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:30055/api/Room", stringContent);
+            var responseMessage = await client.PostAsync("http://localhost:44362/api/Room", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -49,7 +52,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> DeleteRoom(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync($"http://localhost:30055/api/Room/{id}");
+            var responseMessage = await client.DeleteAsync($"http://localhost:44362/api/Room/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
@@ -60,7 +63,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> UpdateRoom(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:30055/api/Room/{id}");
+            var responseMessage = await client.GetAsync($"http://localhost:44362/api/Room/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -76,7 +79,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateRoomDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:30055/api/Room/", stringContent);
+            var responseMessage = await client.PutAsync("http://localhost:44362/api/Room/", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
