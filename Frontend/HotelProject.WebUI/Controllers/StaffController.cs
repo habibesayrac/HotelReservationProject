@@ -8,6 +8,7 @@ namespace HotelProject.WebUI.Controllers
 {
     [AllowAnonymous]
     
+    
     public class StaffController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -20,7 +21,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:44362/api/Staff");
+            var responseMessage = await client.GetAsync("https://localhost:44362/api/Staff");
 
             if (responseMessage.IsSuccessStatusCode)
             {
