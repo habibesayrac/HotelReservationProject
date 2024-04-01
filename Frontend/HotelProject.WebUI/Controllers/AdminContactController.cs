@@ -22,10 +22,10 @@ namespace HotelProject.WebUI.Controllers
         {
 
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:44362/api/Contact");
+            var responseMessage = await client.GetAsync("https://localhost:44362/api/Contact");
 
             var client2 = _httpClientFactory.CreateClient();
-            var responseMessage2 = await client2.GetAsync("http://localhost:44362/api/Contact/GetContactCount");
+            var responseMessage2 = await client2.GetAsync("https://localhost:44362/api/Contact/GetContactCount");
             
             var client3 = _httpClientFactory.CreateClient();
             var responseMessage3 = await client3.GetAsync("http://localhost:44362/api/SendMessage/GetSendMessageCount");
@@ -113,7 +113,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> MessageDetailsByInbox(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:44362/api/Contact/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:44362/api/Contact/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
