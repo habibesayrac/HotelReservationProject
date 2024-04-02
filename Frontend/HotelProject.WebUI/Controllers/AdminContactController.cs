@@ -28,7 +28,7 @@ namespace HotelProject.WebUI.Controllers
             var responseMessage2 = await client2.GetAsync("https://localhost:44362/api/Contact/GetContactCount");
             
             var client3 = _httpClientFactory.CreateClient();
-            var responseMessage3 = await client3.GetAsync("http://localhost:44362/api/SendMessage/GetSendMessageCount");
+            var responseMessage3 = await client3.GetAsync("https://localhost:44362/api/SendMessage/GetSendMessageCount");
 
 
             if (responseMessage.IsSuccessStatusCode)
@@ -53,7 +53,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> SendBox()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:44362/api/SendMessage");
+            var responseMessage = await client.GetAsync("https://localhost:44362/api/SendMessage");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -79,7 +79,7 @@ namespace HotelProject.WebUI.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createSendMessage);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("http://localhost:44362/api/SendMessage", stringContent);
+            var responseMessage = await client.PostAsync("https://localhost:44362/api/SendMessage", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("SendBox");
@@ -99,7 +99,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> MessageDetailsBySendbox(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"http://localhost:44362/api/SendMessage/{id}");
+            var responseMessage = await client.GetAsync($"https://localhost:44362/api/SendMessage/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();

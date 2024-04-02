@@ -7,9 +7,9 @@ using System.Text;
 
 namespace HotelProject.WebUI.Controllers
 {
-	[AllowAnonymous]
+    [AllowAnonymous]
 
-	public class BookingAdminController : Controller
+    public class BookingAdminController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -21,7 +21,7 @@ namespace HotelProject.WebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:44362/api/BookingApi");
+            var responseMessage = await client.GetAsync("https://localhost:44362/api/BookingApi");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -30,12 +30,23 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> ApprovedBooking2(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:44362/api/BookingApi/BookingApproved?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         public async Task<IActionResult> ApprovedBooking(ApprovedBookingDto approvedBookingDto)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(approvedBookingDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:44362/api/BookingApi/bbb", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:44362/api/BookingApi/bbb", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
