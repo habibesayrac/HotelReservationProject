@@ -40,6 +40,16 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> CancelBooking(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync($"https://localhost:44362/api/BookingApi/BookingCancel?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
 
         public async Task<IActionResult> ApprovedBooking(ApprovedBookingDto approvedBookingDto)
         {
