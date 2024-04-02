@@ -39,6 +39,11 @@ namespace HotelProject.BusinessLayer.Concrete
 
         }
 
+        public void TBookingStatusChangeWait(int id)
+        {
+            _bookingDal.BookingStatusChangeWait(id);
+        }
+
         public void TDelete(Booking t)
         {
            _bookingDal.Delete(t);

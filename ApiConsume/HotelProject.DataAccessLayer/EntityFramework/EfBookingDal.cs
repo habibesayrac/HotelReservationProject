@@ -50,7 +50,15 @@ namespace HotelProject.DataAccessLayer.EntityFramework
             context.SaveChanges();
         }
 
-		public int GetBookingCount()
+        public void BookingStatusChangeWait(int id)
+        {
+            var context = new Context();
+            var values = context.Bookings.Find(id);
+            values.Status = "Müşteri Aranacak";
+            context.SaveChanges();
+        }
+
+        public int GetBookingCount()
 		{
             var context = new Context();
             var value = context.Bookings.Count();
