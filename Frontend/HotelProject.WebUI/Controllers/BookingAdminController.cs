@@ -9,7 +9,6 @@ using System.Text;
 namespace HotelProject.WebUI.Controllers
 {
     [AllowAnonymous]
-
     public class BookingAdminController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
