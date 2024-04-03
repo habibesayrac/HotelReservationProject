@@ -73,7 +73,6 @@ namespace HotelProject.WebUI.Controllers
                 var values = JsonConvert.DeserializeObject<UpdateBookingDto>(jsonData);
                 return View(values);
             }
-
             return View();
         }
 
@@ -103,6 +102,5 @@ namespace HotelProject.WebUI.Controllers
             }
             return View();
         }
-
     }
 }
